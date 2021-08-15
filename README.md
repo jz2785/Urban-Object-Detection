@@ -4,7 +4,9 @@
 This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
 
 ### Set up
-This section should contain a brief description of the steps to follow to run the code for this repository.
+
+This is setup for the provided environement, we have to redownload and process the files due to a bug in the provided download_process.py
+Run `bash launch_download.sh` and give `/tmp` as answer where to install the SDK since we do not have enough disk space for both the google cloud SDK and the TFrecords. Then answer yes to add gsutil to the path and the script `/home/workspace/.student_bashrc`. The bash file `launch_download.sh` will automatically  reload the configuration and start the download process.
 
 ### Dataset
 #### Dataset analysis
@@ -24,7 +26,7 @@ This section should highlight the different strategies you adopted to improve yo
 ## TODO
 See "5. Submission" for which files have to be in the submission and repository
 
-* Git
+* ~~Git~~
 * Exploratory Data Analysis
 * Create the splits
 * Edit the config file
