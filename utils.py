@@ -59,21 +59,21 @@ def get_module_logger(mod_name):
 
 
 def get_train_input(config_path):
-  """
-  Get the tf dataset that inputs training batches
-  args:
+    """
+    Get the tf dataset that inputs training batches
+    args:
     - config_path [str]: path to the edited config file
-  returns:
+    returns:
     - dataset [tf.Dataset]: data outputting augmented batches
-  """
-  # parse config
-  configs = get_configs_from_pipeline_file(config_path)
-  train_config = configs['train_config']
-  train_input_config = configs['train_input_config']
+    """
+    # parse config
+    configs = get_configs_from_pipeline_file(config_path)
+    train_config = configs['train_config']
+    train_input_config = configs['train_input_config']
 
-  # get the dataset
-  dataset = train_input(train_config, train_input_config, configs['model'])
-  return dataset
+    # get the dataset
+    dataset = train_input(train_config, train_input_config, configs['model'])
+    return dataset
 
 def parse_frame(frame, camera_name='FRONT'):
     """ 
@@ -109,20 +109,20 @@ def parse_frame(frame, camera_name='FRONT'):
 
 
 def int64_feature(value):
-  return tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))
+    return tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))
 
 
 def int64_list_feature(value):
-  return tf.train.Feature(int64_list=tf.train.Int64List(value=value))
+    return tf.train.Feature(int64_list=tf.train.Int64List(value=value))
 
 
 def bytes_feature(value):
-  return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
+    return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 
 def bytes_list_feature(value):
-  return tf.train.Feature(bytes_list=tf.train.BytesList(value=value))
+    return tf.train.Feature(bytes_list=tf.train.BytesList(value=value))
 
 
 def float_list_feature(value):
-  return tf.train.Feature(float_list=tf.train.FloatList(value=value))
+    return tf.train.Feature(float_list=tf.train.FloatList(value=value))

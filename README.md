@@ -1,7 +1,7 @@
 # Object Detection in an Urban Environment
 
 ### Project overview
-This section should contain a brief description of the project and what we are trying to achieve. Why is object detection such an important component of self driving car systems?
+In this project, we look at object detection in camera images. Object detection has a wide variety of application, but for this course we are specifically interested in the application of self driving cars, where object detection is used for scene understanding. Good scene understanding is important for reliable driving. 
 
 ### Set up
 
@@ -12,7 +12,7 @@ To run the code, Anaconda is recommended. Python 3.8 was used. See requirements.
 ### Dataset
 #### Dataset analysis - A quantitative and qualitative description of the dataset
 
-Here we try to understand our dataset by a quantitative and qualitative analysis. By plotting images from different files we can tell that they are from seperate rides, we created an animation of one ride, see the file [here](./visualizations/one_file.mp4) and the following 10 images from one ride:
+Here we try to understand our dataset by a quantitative and qualitative analysis. By plotting images from different files we can tell that they are from seperate rides, we created an animation of one ride, see the file [here](./visualizations/one_ride.mp4) and the following 10 images from one ride:
 ![10 images of a ride with bounding boxes](./visualizations/ten_images.png)
 
 Using cluster analysis on the mean and standard deviation of pixel values we can see there are at least two clusters, the first being day driving and the second during the night:
@@ -33,14 +33,15 @@ we can see that there are much fewer bounding boxes for cyclists in the dataset 
 
 #### Cross validation
 
-One common way to do splitting is to just do random splits, however since this data has similar characteristics to time series prediction, randomly splitting across the whole dataset could potentially underestimate the error in practice. Instead, the course guidelines suggest to just split in terms of files, this approach should not suffer from the afformentioned problem. Having decided on just splitting in terms of files, we now have to decide on the splitting of the files, for this 
-
-Train - Test
-Train -> repeated k-cross validation to get an accurate prediction accuracy 
+One common way to do splitting is to just do random splits, however since this data has similar characteristics to time series prediction, randomly splitting across the whole dataset could potentially underestimate the error in practice. Instead, the course guidelines suggest to just split in terms of files, this approach should not suffer from the afformentioned problem. Having decided on just splitting in terms of files, we now have to decide on the splitting of the files. We decided on a 70%, 15%, 15% split and have formulated an objective in terms of the class balance and day/night scenario balance in the train, validation and test set. This objective then was minimized using a simulated annealing approach (see the jupyter notebook for details) to compute the resulting splits saved to the files `filenames_training.txt`, `filenames_validation.txt` and `filenames_test.txt`.
 
 ### Training 
 #### Reference experiment
-This section should detail the results of the reference experiment. It should includes training metrics and a detailed explanation of the algorithm's performances.
+Here the `edit_config.py` was used to create a `pipeline_new.config` which the reference model was trained with. The model was then also evaluated using the validation set which is shown as the blue dot in the following plots, whereas the training metrics are shown in orange.
+
+![Images of tensorboard plots](./visualizations/screenshot_0.png)
+
+Unsurprisingly, as a pretty small dataset was used, the model was overfitted. In the following section augmentations were added to reduce the overfitting.
 
 #### Improve on the reference
 This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
@@ -50,13 +51,14 @@ See "5. Submission" for which files have to be in the submission and repository
 
 * ~~Git~~
 * ~~Exploratory Data Analysis~~
-* Create the splits
-* Edit the config file
-* Training
+* ~~Create the splits~~
+* ~~Edit the config file~~
+* ~~Training of rerence model~~
 * Improve the performances
 * * Explore augmentations
 * Creating an animation
 * Class level metrics
 * Run the pep8 package
 * requirements.txt
+* More writing
 * Check [Review criteria](https://review.udacity.com/#!/rubrics/2940/view) again
