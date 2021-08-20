@@ -43,6 +43,11 @@ Here the `edit_config.py` was used to create a `pipeline_new.config` which the r
 
 Unsurprisingly, as a pretty small dataset was used, the model was overfitted. In the following section augmentations were added to reduce the overfitting.
 
+We can also see the precision and recall using the validation set;
+
+![Images of tensorboard plots](./visualizations/screenshot_1.png)
+![Images of tensorboard plots](./visualizations/screenshot_2.png)
+
 #### Improve on the reference
 This section should highlight the different strategies you adopted to improve your model. It should contain relevant figures and details of your findings.
  
