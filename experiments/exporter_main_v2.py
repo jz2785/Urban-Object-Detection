@@ -143,6 +143,8 @@ flags.mark_flag_as_required('pipeline_config_path')
 flags.mark_flag_as_required('trained_checkpoint_dir')
 flags.mark_flag_as_required('output_directory')
 
+tf.keras.backend.set_floatx('float32')
+
 
 def main(_):
   pipeline_config = pipeline_pb2.TrainEvalPipelineConfig()
