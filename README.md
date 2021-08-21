@@ -7,7 +7,12 @@ In this project, we look at object detection in camera images. Object detection 
 
 A local setup was used, as there were minor and major issues with the provided workspace including too little space for processing the files and larger jupyter notebooks, crashing internet browser etc.
 
-To run the code, Anaconda is recommended. Python 3.8 was used. See requirements.txt for the required python packages. It is also required to install the Google Cloud SDK and has to be added to the path. Additionally the Tensorflow Object Detection API is necessary, commit `3db445c7b0404f9b98cbc47616bab08bfa3d8130` was used to create the report, see [here](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html) for the installation process. One has to apply to the [Waymo open dataset](https://waymo.com/open/) and install the python package and then run the `launch_download.sh` to download the data and preprocess it. To create the videos ffmpeg has to be also installed, one can check on linux whether the binary is accessible in the path using `which ffmpeg`.
+To run the code, Anaconda is recommended. Python 3.8 was used. See requirements.txt for the required python packages. It is also required to install the Google Cloud SDK and has to be added to the path. Additionally the Tensorflow Object Detection API is necessary, commit `3db445c7b0404f9b98cbc47616bab08bfa3d8130` was used to create the report, see [here](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html) for the installation process. One has to register for the [Waymo open dataset](https://waymo.com/open/) and install the python package and then run the `launch_download.sh` to download the data and preprocess it. To create the videos ffmpeg has to be also installed, one can check on linux whether the binary is accessible in the path using `which ffmpeg`.
+
+### Running the code
+After downloading and installing the dependencies, one should run the `Exploratory Data Analysis.ipynb` notebook to compute the file split and then use `launch_split.sh` to apply the split
+to the files on disk. Using `launch_edit_config.sh` a pipeline file is created which then can be run using `launch_inference_video.sh`. After this create another pipeline_new.config and put it 
+into `training/improved` and run `launch_improved_training.sh`.
 
 ### Dataset
 #### Dataset analysis - A quantitative and qualitative description of the dataset
@@ -89,7 +94,3 @@ Improved | 0.337684 | 0.218508 | 0.231632 | 0.018697
 
 An animation of a test ride is stored [here](./visualizations/animation.mp4).
 
-## TODO
-* Run the pep8 package
-* requirements.txt
-* Check [Review criteria](https://review.udacity.com/#!/rubrics/2940/view) again
